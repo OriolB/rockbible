@@ -5,6 +5,30 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100323_added_entity_Banda.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100324_added_entity_Pais.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100325_added_entity_Ciudad.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100326_added_entity_Genero.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100327_added_entity_Musico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100328_added_entity_Album.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100329_added_entity_Cancion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100330_added_entity_Discografica.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100331_added_entity_UserExt.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100332_added_entity_VotarFavoritoM.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100333_added_entity_VotarFavoritoB.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100334_added_entity_VotarFavoritoA.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100335_added_entity_VotarFavoritoC.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20171103100323_added_entity_constraints_Banda.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100325_added_entity_constraints_Ciudad.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100327_added_entity_constraints_Musico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100328_added_entity_constraints_Album.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100329_added_entity_constraints_Cancion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100330_added_entity_constraints_Discografica.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100331_added_entity_constraints_UserExt.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100332_added_entity_constraints_VotarFavoritoM.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100333_added_entity_constraints_VotarFavoritoB.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100334_added_entity_constraints_VotarFavoritoA.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20171103100335_added_entity_constraints_VotarFavoritoC.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

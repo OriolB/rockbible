@@ -1,0 +1,85 @@
+entity Banda{
+	nombre String,
+	fechaCreacion LocalDate,
+    yearsActivos LocalDate,
+    descripcion String,
+    estado Boolean,
+    foto ImageBlob
+}
+entity Pais {
+	nombre String
+}
+entity Ciudad {
+	nombre String,
+    gmaps String
+}
+entity Genero{
+	nombre String
+}
+entity Musico{
+	nombre String,
+    fechaNacimiento LocalDate,
+    descripcion String,
+    foto ImageBlob
+}
+entity Album{
+	nombre String,
+    fechaCreacion LocalDate,
+    foto ImageBlob
+}
+entity Cancion{
+	nombre String,
+    duracion Double
+}
+
+entity Discografica{
+	nombre String,
+    foto ImageBlob
+}
+entity UserExt {
+	nombre String,
+    foto ImageBlob,
+    fechaNacimiento LocalDate
+}
+entity VotarFavoritoM{
+	momento ZonedDateTime,
+    valoracio Integer
+}
+entity VotarFavoritoB{
+	momento ZonedDateTime,
+    valoracio Integer
+}
+entity VotarFavoritoA{
+	momento ZonedDateTime,
+    valoracio Integer
+}
+entity VotarFavoritoC{
+	momento ZonedDateTime,
+    valoracio Integer
+}
+relationship ManyToOne{
+	Musico{banda(nombre)} to Banda{musico},
+    Album{banda(nombre)} to Banda{album},
+    Album{musico(nombre)} to Musico{album},
+    Ciudad{pais(nombre)} to Pais{ciudad},
+    Musico{pais(nombre)} to Pais{musico},
+    Banda{pais(nombre)} to Pais{banda},
+    VotarFavoritoM{userext(nombre)} to UserExt{votarfavoritom},
+    VotarFavoritoB{userext(nombre)} to UserExt{votarfavoritob},
+    VotarFavoritoA{userext(nombre)} to UserExt{votarfavoritoa},
+    VotarFavoritoC{userext(nombre)} to UserExt{votarfavoritoc},
+    VotarFavoritoM{musico(nombre)} to Musico{votarfavoritom},
+    VotarFavoritoB{banda(nombre)} to Banda{votarfavoritob},
+    VotarFavoritoA{album(nombre)} to Album{votarfavoritoa},
+    VotarFavoritoC{cancion(nombre)} to Cancion{votarfavoritoc}
+}
+
+relationship ManyToMany{
+	Discografica{banda(nombre)} to Banda{discografica},
+    Cancion{album(nombre)} to Album{cancion},
+    Banda{genero(nombre)} to Genero{banda},
+    Album{genero(nombre)} to Genero{album}
+}
+relationship OneToOne{
+	UserExt{user(login)} to User
+}
