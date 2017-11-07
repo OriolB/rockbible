@@ -1,0 +1,82 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myMusicoLabel" data-translate="appApp.musico.home.createOrEditLabel">Create or edit a Musico</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.musico.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.musico.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="appApp.musico.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.musico.nombre"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="appApp.musico.fechaNacimiento" for="field_fechaNacimiento">Fecha Nacimiento</label>
+                <div class="input-group">
+                    <input id="field_fechaNacimiento" type="text" class="form-control" name="fechaNacimiento" uib-datepicker-popup="{{dateformat}}" ng-model="vm.musico.fechaNacimiento" is-open="vm.datePickerOpenStatus.fechaNacimiento"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaNacimiento')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="appApp.musico.descripcion" for="field_descripcion">Descripcion</label>
+            <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                    ng-model="vm.musico.descripcion"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setFoto($file, vm.musico)" ngf-pattern="'image/*'">
+            <label class="control-label" data-translate="appApp.musico.foto" for="field_foto">Foto</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.musico.fotoContentType + ';base64,' + vm.musico.foto}}" style="max-height: 100px;" ng-if="vm.musico.foto" alt="musico image"/>
+                <div ng-if="vm.musico.foto" class="help-block clearfix">
+                    <span class="pull-left">{{vm.musico.fotoContentType}}, {{vm.byteSize(vm.musico.foto)}}</span>
+                    <button type="button" ng-click="vm.musico.foto=null;vm.musico.fotoContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setFoto($file, vm.musico)" accept="image/*" data-translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="foto" id="field_foto"
+                    ng-model="vm.musico.foto"
+                    />
+            <input type="hidden" class="form-control" name="fotoContentType" id="field_fotoContentType"
+                    ng-model="vm.musico.fotoContentType" />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="appApp.musico.banda" for="field_banda">Banda</label>
+            <select class="form-control" id="field_banda" name="banda" ng-model="vm.musico.banda" ng-options="banda as banda.nombre for banda in vm.bandas track by banda.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="appApp.musico.pais" for="field_pais">Pais</label>
+            <select class="form-control" id="field_pais" name="pais" ng-model="vm.musico.pais" ng-options="pais as pais.nombre for pais in vm.pais track by pais.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

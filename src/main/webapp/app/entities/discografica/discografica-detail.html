@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span data-translate="appApp.discografica.detail.title">Discografica</span> {{vm.discografica.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="appApp.discografica.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.discografica.nombre}}</span>
+        </dd>
+        <dt><span data-translate="appApp.discografica.foto">Foto</span></dt>
+        <dd>
+            <div ng-if="vm.discografica.foto">
+                <a ng-click="vm.openFile(vm.discografica.fotoContentType, vm.discografica.foto)">
+                    <img data-ng-src="{{'data:' + vm.discografica.fotoContentType + ';base64,' + vm.discografica.foto}}" style="max-width: 100%;" alt="discografica image"/>
+                </a>
+                {{vm.discografica.fotoContentType}}, {{vm.byteSize(vm.discografica.foto)}}
+            </div>
+        </dd>
+        <dt><span data-translate="appApp.discografica.banda">Banda</span></dt>
+        <dd>
+            <span ng-repeat="banda in vm.discografica.bandas">
+                <a ui-sref="banda-detail({id: banda.id})">{{banda.nombre}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="discografica-detail.edit({id:vm.discografica.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

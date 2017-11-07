@@ -1,0 +1,58 @@
+
+<div>
+    <h2><span data-translate="appApp.banda.detail.title">Banda</span> {{vm.banda.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="appApp.banda.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.banda.nombre}}</span>
+        </dd>
+        <dt><span data-translate="appApp.banda.fechaCreacion">Fecha Creacion</span></dt>
+        <dd>
+            <span>{{vm.banda.fechaCreacion | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="appApp.banda.yearsActivos">Years Activos</span></dt>
+        <dd>
+            <span>{{vm.banda.yearsActivos | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="appApp.banda.descripcion">Descripcion</span></dt>
+        <dd>
+            <span>{{vm.banda.descripcion}}</span>
+        </dd>
+        <dt><span data-translate="appApp.banda.estado">Estado</span></dt>
+        <dd>
+            <span>{{vm.banda.estado}}</span>
+        </dd>
+        <dt><span data-translate="appApp.banda.foto">Foto</span></dt>
+        <dd>
+            <div ng-if="vm.banda.foto">
+                <a ng-click="vm.openFile(vm.banda.fotoContentType, vm.banda.foto)">
+                    <img data-ng-src="{{'data:' + vm.banda.fotoContentType + ';base64,' + vm.banda.foto}}" style="max-width: 100%;" alt="banda image"/>
+                </a>
+                {{vm.banda.fotoContentType}}, {{vm.byteSize(vm.banda.foto)}}
+            </div>
+        </dd>
+        <dt><span data-translate="appApp.banda.pais">Pais</span></dt>
+        <dd>
+            <a ui-sref="pais-detail({id:vm.banda.pais.id})">{{vm.banda.pais.nombre}}</a>
+        </dd>
+        <dt><span data-translate="appApp.banda.genero">Genero</span></dt>
+        <dd>
+            <span ng-repeat="genero in vm.banda.generos">
+                <a ui-sref="genero-detail({id: genero.id})">{{genero.nombre}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="banda-detail.edit({id:vm.banda.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

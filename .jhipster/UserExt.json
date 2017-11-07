@@ -1,0 +1,58 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "userExt"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "votarfavoritom",
+            "otherEntityName": "votarFavoritoM",
+            "otherEntityRelationshipName": "userext"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "votarfavoritob",
+            "otherEntityName": "votarFavoritoB",
+            "otherEntityRelationshipName": "userext"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "votarfavoritoa",
+            "otherEntityName": "votarFavoritoA",
+            "otherEntityRelationshipName": "userext"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "votarfavoritoc",
+            "otherEntityName": "votarFavoritoC",
+            "otherEntityRelationshipName": "userext"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "foto",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "fechaNacimiento",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20171103100331",
+    "entityTableName": "user_ext",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ciudad",
+            "otherEntityName": "ciudad",
+            "otherEntityRelationshipName": "pais"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "musico",
+            "otherEntityName": "musico",
+            "otherEntityRelationshipName": "pais"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "banda",
+            "otherEntityName": "banda",
+            "otherEntityRelationshipName": "pais"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171103100324",
+    "entityTableName": "pais",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

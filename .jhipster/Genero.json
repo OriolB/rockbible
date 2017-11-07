@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "banda",
+            "otherEntityName": "banda",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "genero"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "album",
+            "otherEntityName": "album",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "genero"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171103100326",
+    "entityTableName": "genero",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

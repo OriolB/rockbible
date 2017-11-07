@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "userext",
+            "otherEntityName": "userExt",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "banda",
+            "otherEntityName": "banda",
+            "otherEntityField": "nombre"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "momento",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "valoracio",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20171103100333",
+    "entityTableName": "votar_favorito_b",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

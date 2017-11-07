@@ -1,0 +1,77 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "pais",
+            "otherEntityName": "pais",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "banda",
+            "relationshipName": "genero",
+            "otherEntityName": "genero",
+            "otherEntityField": "nombre",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "musico",
+            "otherEntityName": "musico",
+            "otherEntityRelationshipName": "banda"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "album",
+            "otherEntityName": "album",
+            "otherEntityRelationshipName": "banda"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "votarfavoritob",
+            "otherEntityName": "votarFavoritoB",
+            "otherEntityRelationshipName": "banda"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "discografica",
+            "otherEntityName": "discografica",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "banda"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechaCreacion",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "yearsActivos",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "foto",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "changelogDate": "20171103100323",
+    "entityTableName": "banda",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,23 @@
+{
+    "appApp": {
+        "genero" : {
+            "home": {
+                "title": "Generos",
+                "createLabel": "Create a new Genero",
+                "createOrEditLabel": "Create or edit a Genero"
+            },
+            "created": "A new Genero is created with identifier {{ param }}",
+            "updated": "A Genero is updated with identifier {{ param }}",
+            "deleted": "A Genero is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Genero {{ id }}?"
+            },
+            "detail": {
+                "title": "Genero"
+            },
+            "nombre": "Nombre",
+            "banda": "Banda",
+            "album": "Album"
+        }
+    }
+}

@@ -1,0 +1,95 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myBandaLabel" data-translate="appApp.banda.home.createOrEditLabel">Create or edit a Banda</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.banda.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.banda.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="appApp.banda.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.banda.nombre"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="appApp.banda.fechaCreacion" for="field_fechaCreacion">Fecha Creacion</label>
+                <div class="input-group">
+                    <input id="field_fechaCreacion" type="text" class="form-control" name="fechaCreacion" uib-datepicker-popup="{{dateformat}}" ng-model="vm.banda.fechaCreacion" is-open="vm.datePickerOpenStatus.fechaCreacion"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaCreacion')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="appApp.banda.yearsActivos" for="field_yearsActivos">Years Activos</label>
+                <div class="input-group">
+                    <input id="field_yearsActivos" type="text" class="form-control" name="yearsActivos" uib-datepicker-popup="{{dateformat}}" ng-model="vm.banda.yearsActivos" is-open="vm.datePickerOpenStatus.yearsActivos"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('yearsActivos')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="appApp.banda.descripcion" for="field_descripcion">Descripcion</label>
+            <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                    ng-model="vm.banda.descripcion"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="appApp.banda.estado" for="field_estado">Estado</label>
+                <input type="checkbox" name="estado" id="field_estado"
+                          ng-model="vm.banda.estado"/>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setFoto($file, vm.banda)" ngf-pattern="'image/*'">
+            <label class="control-label" data-translate="appApp.banda.foto" for="field_foto">Foto</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.banda.fotoContentType + ';base64,' + vm.banda.foto}}" style="max-height: 100px;" ng-if="vm.banda.foto" alt="banda image"/>
+                <div ng-if="vm.banda.foto" class="help-block clearfix">
+                    <span class="pull-left">{{vm.banda.fotoContentType}}, {{vm.byteSize(vm.banda.foto)}}</span>
+                    <button type="button" ng-click="vm.banda.foto=null;vm.banda.fotoContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setFoto($file, vm.banda)" accept="image/*" data-translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="foto" id="field_foto"
+                    ng-model="vm.banda.foto"
+                    />
+            <input type="hidden" class="form-control" name="fotoContentType" id="field_fotoContentType"
+                    ng-model="vm.banda.fotoContentType" />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="appApp.banda.pais" for="field_pais">Pais</label>
+            <select class="form-control" id="field_pais" name="pais" ng-model="vm.banda.pais" ng-options="pais as pais.nombre for pais in vm.pais track by pais.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="appApp.banda.genero" for="field_genero">Genero</label>
+            <select class="form-control" id="field_genero" multiple name="genero" ng-model="vm.banda.generos" ng-options="genero as genero.nombre for genero in vm.generos track by genero.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

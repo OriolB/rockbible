@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "cancion",
+            "relationshipName": "album",
+            "otherEntityName": "album",
+            "otherEntityField": "nombre",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "votarfavoritoc",
+            "otherEntityName": "votarFavoritoC",
+            "otherEntityRelationshipName": "cancion"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "duracion",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20171103100329",
+    "entityTableName": "cancion",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

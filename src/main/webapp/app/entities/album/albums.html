@@ -1,0 +1,79 @@
+<div>
+    <h2 data-translate="appApp.album.home.title">Albums</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="album.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="appApp.album.home.createLabel">
+                        Create new Album
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="appApp.album.nombre">Nombre</span></th>
+                    <th><span data-translate="appApp.album.fechaCreacion">Fecha Creacion</span></th>
+                    <th><span data-translate="appApp.album.foto">Foto</span></th>
+                    <th><span data-translate="appApp.album.banda">Banda</span></th>
+                    <th><span data-translate="appApp.album.musico">Musico</span></th>
+                    <th><span data-translate="appApp.album.genero">Genero</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="album in vm.albums track by album.id">
+                    <td><a ui-sref="album-detail({id:album.id})">{{album.id}}</a></td>
+                    <td>{{album.nombre}}</td>
+                        <td>{{album.fechaCreacion | date:'mediumDate'}}</td>
+                    <td>
+                        <a ng-if="album.foto" ng-click="vm.openFile(album.fotoContentType, album.foto)">
+                            <img data-ng-src="{{'data:' + album.fotoContentType + ';base64,' + album.foto}}" style="max-height: 30px;" alt="album image"/>
+                        </a>
+                        <span ng-if="album.foto">{{album.fotoContentType}}, {{vm.byteSize(album.foto)}}</span>
+                    </td>
+                    <td>
+                        <a ui-sref="banda-detail({id:album.banda.id})">{{album.banda.nombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="musico-detail({id:album.musico.id})">{{album.musico.nombre}}</a>
+                    </td>
+                    <td>
+                        <span ng-repeat="genero in album.generos">
+                            <a class="form-control-static" ui-sref="genero-detail({id: genero.id})">{{genero.nombre}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="album-detail({id:album.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="album.edit({id:album.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="album.delete({id:album.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

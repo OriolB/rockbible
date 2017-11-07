@@ -1,0 +1,32 @@
+{
+    "appApp": {
+        "banda" : {
+            "home": {
+                "title": "Bandas",
+                "createLabel": "Create a new Banda",
+                "createOrEditLabel": "Create or edit a Banda"
+            },
+            "created": "A new Banda is created with identifier {{ param }}",
+            "updated": "A Banda is updated with identifier {{ param }}",
+            "deleted": "A Banda is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Banda {{ id }}?"
+            },
+            "detail": {
+                "title": "Banda"
+            },
+            "nombre": "Nombre",
+            "fechaCreacion": "Fecha Creacion",
+            "yearsActivos": "Years Activos",
+            "descripcion": "Descripcion",
+            "estado": "Estado",
+            "foto": "Foto",
+            "pais": "Pais",
+            "genero": "Genero",
+            "musico": "Musico",
+            "album": "Album",
+            "votarfavoritob": "Votarfavoritob",
+            "discografica": "Discografica"
+        }
+    }
+}

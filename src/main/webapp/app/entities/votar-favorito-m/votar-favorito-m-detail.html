@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="appApp.votarFavoritoM.detail.title">Votar Favorito M</span> {{vm.votarFavoritoM.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="appApp.votarFavoritoM.momento">Momento</span></dt>
+        <dd>
+            <span>{{vm.votarFavoritoM.momento | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="appApp.votarFavoritoM.valoracio">Valoracio</span></dt>
+        <dd>
+            <span>{{vm.votarFavoritoM.valoracio}}</span>
+        </dd>
+        <dt><span data-translate="appApp.votarFavoritoM.userext">Userext</span></dt>
+        <dd>
+            <a ui-sref="user-ext-detail({id:vm.votarFavoritoM.userext.id})">{{vm.votarFavoritoM.userext.nombre}}</a>
+        </dd>
+        <dt><span data-translate="appApp.votarFavoritoM.musico">Musico</span></dt>
+        <dd>
+            <a ui-sref="musico-detail({id:vm.votarFavoritoM.musico.id})">{{vm.votarFavoritoM.musico.nombre}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="votar-favorito-m-detail.edit({id:vm.votarFavoritoM.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,24 @@
+{
+    "appApp": {
+        "votarFavoritoC" : {
+            "home": {
+                "title": "Votar Favorito CS",
+                "createLabel": "Create a new Votar Favorito C",
+                "createOrEditLabel": "Create or edit a Votar Favorito C"
+            },
+            "created": "A new Votar Favorito C is created with identifier {{ param }}",
+            "updated": "A Votar Favorito C is updated with identifier {{ param }}",
+            "deleted": "A Votar Favorito C is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Votar Favorito C {{ id }}?"
+            },
+            "detail": {
+                "title": "Votar Favorito C"
+            },
+            "momento": "Momento",
+            "valoracio": "Valoracio",
+            "userext": "Userext",
+            "cancion": "Cancion"
+        }
+    }
+}

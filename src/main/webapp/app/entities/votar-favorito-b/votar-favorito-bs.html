@@ -1,0 +1,66 @@
+<div>
+    <h2 data-translate="appApp.votarFavoritoB.home.title">Votar Favorito BS</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="votar-favorito-b.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="appApp.votarFavoritoB.home.createLabel">
+                        Create new Votar Favorito B
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="appApp.votarFavoritoB.momento">Momento</span></th>
+                    <th><span data-translate="appApp.votarFavoritoB.valoracio">Valoracio</span></th>
+                    <th><span data-translate="appApp.votarFavoritoB.userext">Userext</span></th>
+                    <th><span data-translate="appApp.votarFavoritoB.banda">Banda</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="votarFavoritoB in vm.votarFavoritoBS track by votarFavoritoB.id">
+                    <td><a ui-sref="votar-favorito-b-detail({id:votarFavoritoB.id})">{{votarFavoritoB.id}}</a></td>
+                    <td>{{votarFavoritoB.momento | date:'medium'}}</td>
+                    <td>{{votarFavoritoB.valoracio}}</td>
+                    <td>
+                        <a ui-sref="user-ext-detail({id:votarFavoritoB.userext.id})">{{votarFavoritoB.userext.nombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="banda-detail({id:votarFavoritoB.banda.id})">{{votarFavoritoB.banda.nombre}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="votar-favorito-b-detail({id:votarFavoritoB.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="votar-favorito-b.edit({id:votarFavoritoB.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="votar-favorito-b.delete({id:votarFavoritoB.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

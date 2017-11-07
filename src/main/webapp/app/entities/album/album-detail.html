@@ -1,0 +1,50 @@
+
+<div>
+    <h2><span data-translate="appApp.album.detail.title">Album</span> {{vm.album.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="appApp.album.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.album.nombre}}</span>
+        </dd>
+        <dt><span data-translate="appApp.album.fechaCreacion">Fecha Creacion</span></dt>
+        <dd>
+            <span>{{vm.album.fechaCreacion | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="appApp.album.foto">Foto</span></dt>
+        <dd>
+            <div ng-if="vm.album.foto">
+                <a ng-click="vm.openFile(vm.album.fotoContentType, vm.album.foto)">
+                    <img data-ng-src="{{'data:' + vm.album.fotoContentType + ';base64,' + vm.album.foto}}" style="max-width: 100%;" alt="album image"/>
+                </a>
+                {{vm.album.fotoContentType}}, {{vm.byteSize(vm.album.foto)}}
+            </div>
+        </dd>
+        <dt><span data-translate="appApp.album.banda">Banda</span></dt>
+        <dd>
+            <a ui-sref="banda-detail({id:vm.album.banda.id})">{{vm.album.banda.nombre}}</a>
+        </dd>
+        <dt><span data-translate="appApp.album.musico">Musico</span></dt>
+        <dd>
+            <a ui-sref="musico-detail({id:vm.album.musico.id})">{{vm.album.musico.nombre}}</a>
+        </dd>
+        <dt><span data-translate="appApp.album.genero">Genero</span></dt>
+        <dd>
+            <span ng-repeat="genero in vm.album.generos">
+                <a ui-sref="genero-detail({id: genero.id})">{{genero.nombre}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="album-detail.edit({id:vm.album.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
