@@ -19,4 +19,6 @@ public interface CancionRepository extends JpaRepository<Cancion, Long> {
     @Query("select cancion from Cancion cancion left join fetch cancion.albums where cancion.id =:id")
     Cancion findOneWithEagerRelationships(@Param("id") Long id);
 
+    List<Cancion> findByNombreContaining(String nombre);
+
 }

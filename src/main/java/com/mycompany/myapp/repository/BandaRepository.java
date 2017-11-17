@@ -19,4 +19,6 @@ public interface BandaRepository extends JpaRepository<Banda, Long> {
     @Query("select banda from Banda banda left join fetch banda.generos where banda.id =:id")
     Banda findOneWithEagerRelationships(@Param("id") Long id);
 
+    List<Banda> findByNombreContaining(String nombre);
+
 }

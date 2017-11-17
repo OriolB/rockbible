@@ -89,6 +89,13 @@ public class BandaResource {
         return bandaRepository.findAllWithEagerRelationships();
         }
 
+    @GetMapping("/bandas-por-nombre/{nombre}")
+    @Timed
+    public List<Banda> getBandaporNombre(@PathVariable String nombre) {
+        log.debug("REST request to get all Bandas");
+        return bandaRepository.findByNombreContaining(nombre);
+    }
+
     /**
      * GET  /bandas/:id : get the "id" banda.
      *

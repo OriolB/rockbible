@@ -103,6 +103,13 @@ public class AlbumResource {
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(album));
     }
 
+    @GetMapping("/albums-por-nombre/{nombre}")
+    @Timed
+    public List<Album> getAlbumporNombre(@PathVariable String nombre) {
+        log.debug("REST request to get all Albums");
+        return albumRepository.findByNombreContaining(nombre);
+    }
+
     /**
      * DELETE  /albums/:id : delete the "id" album.
      *

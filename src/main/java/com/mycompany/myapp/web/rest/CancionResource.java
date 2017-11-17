@@ -89,6 +89,13 @@ public class CancionResource {
         return cancionRepository.findAllWithEagerRelationships();
         }
 
+    @GetMapping("/cancions-por-nombre/{nombre}")
+    @Timed
+    public List<Cancion> getCancionesporNombre(@PathVariable String nombre) {
+        log.debug("REST request to get all Cancions");
+        return cancionRepository.findByNombreContaining(nombre);
+    }
+
     /**
      * GET  /cancions/:id : get the "id" cancion.
      *

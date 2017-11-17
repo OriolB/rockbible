@@ -89,6 +89,14 @@ public class MusicoResource {
         return musicoRepository.findAll();
         }
 
+    @GetMapping("/musicos-por-nombre/{nombre}")
+    @Timed
+    public List<Musico> getMusicoporNombre(@PathVariable String nombre) {
+        log.debug("REST request to get all Musicos");
+        return musicoRepository.findByNombreContaining(nombre);
+    }
+
+
     /**
      * GET  /musicos/:id : get the "id" musico.
      *

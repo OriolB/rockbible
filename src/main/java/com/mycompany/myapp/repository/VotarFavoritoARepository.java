@@ -13,4 +13,8 @@ import org.springframework.data.jpa.repository.*;
 @Repository
 public interface VotarFavoritoARepository extends JpaRepository<VotarFavoritoA, Long> {
 
+
+
+
 }
+
